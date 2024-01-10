@@ -9,7 +9,7 @@ import (
 )
 
 func NewCyclop(settings *config.Cyclop) *goanalysis.Linter {
-	a := analyzer.NewAnalyzer()
+	a  := analyzer.NewAnalyzer()
 
 	var cfg map[string]map[string]any
 	if settings != nil {
@@ -28,10 +28,10 @@ func NewCyclop(settings *config.Cyclop) *goanalysis.Linter {
 		cfg = map[string]map[string]any{a.Name: d}
 	}
 
-	return goanalysis.NewLinter(
+	return  goanalysis.NewLinter(
 		a.Name,
 		"checks function and package cyclomatic complexity",
 		[]*analysis.Analyzer{a},
-		cfg,
-	).WithLoadMode(goanalysis.LoadModeTypesInfo)
+		cfg ,
+	). WithLoadMode(goanalysis.LoadModeTypesInfo)
 }
